@@ -2,6 +2,8 @@
 /**
  * BYU theme page to generate the markup for a single page.
  */
+ 
+ global $base_url;
 ?>
 <header id="main-header" role="banner">
 	<div id="header-top" class="wrapper">
@@ -75,6 +77,7 @@ $sidebar_right = render($page['sidebar_right']);
 
 <div id="content" class="wrapper clearfix <?php print ($sidebar_left && $sidebar_right ? 'two-sidebars' : ($sidebar_left || $sidebar_right ? 'one-sidebar' : '')) ?>" role="main">
 	<?php print render($page['highlighted']); ?>
+	<?php print render($page['feature']); ?> 
 	<?php print $breadcrumb; ?>
 
 	<?php print render($title_prefix); ?>
@@ -108,14 +111,46 @@ $sidebar_right = render($page['sidebar_right']);
 </div>
 
 <footer id="page-footer" role="contentinfo">
-		<div id="footer-links">
-			<div class="wrapper">
-				<?php print render($page['footer']); ?>		
-			</div>
-		</div>
+	<?php if($page['footer-column1'] || $page['footer-column2'] || $page['footer-column3'] || $page['footer-column4'] || $page['footer-column5']): ?>
+	<div id="footer-links">
+			<div class="wrapper"> 	
+				<?php if($page['footer-column1']): ?>
+					<div class="col">
+					<?php print render($page['footer-column1']); ?>
+					</div>
+				<?php endif; ?>
+				
+				<?php if($page['footer-column2']): ?>
+					<div class="col">
+					<?php print render($page['footer-column2']); ?>
+					</div>
+				<?php endif; ?>
+				
+				<?php if($page['footer-column3']): ?>
+					<div class="col">
+					<?php print render($page['footer-column3']); ?>
+					</div>
+				<?php endif; ?>
+				
+				<?php if($page['footer-column4']): ?>
+					<div class="col">
+					<?php print render($page['footer-column4']); ?>
+					</div>
+				<?php endif; ?>
+				
+				<?php if($page['footer-column5']): ?>
+					<div class="col omega">
+					<?php print render($page['footer-column5']); ?>
+					</div>
+				<?php endif; ?>
 
-		<div id="footer-bottom">
-			<div class="wrapper">
+			</div>	
+	</div>
+	<?php endif; ?>
+	
+  <div id="footer-bottom">
+			<div class="wrapper clearfix">
+			<?php print render($page['footer-bottom']); ?>
 			<?php 
 			if (!render($page['copyright'])): //If there is no specific content in the copyright area, display default ?> 
 				<a id="lds"   href="http://lds.org/">The Church of Jesus Christ of Latter-day Saints</a>
@@ -129,6 +164,6 @@ $sidebar_right = render($page['sidebar_right']);
 			endif; ?>
 			</div>
 		</div>
-	
+   
 </footer>
 <?php print render($page['bottom']); ?>

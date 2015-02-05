@@ -17,9 +17,16 @@ scripts[] = js/plugins/modernizr.js
 scripts[] = js/bootstrap/bootstrap-dropdown.js
 
 regions[help]        	= Help
+regions[feature]        = Featured Content
 regions[content]        = Content
 regions[sidebar_left]   = Left sidebar
 regions[sidebar_right]  = Right sidebar
+regions[footer-column1]	= Footer Column 1 
+regions[footer-column2]	= Footer Column 2
+regions[footer-column3]	= Footer Column 3
+regions[footer-column4]	= Footer Column 4
+regions[footer-column5]	= Footer Column 5
+regions[footer-bottom]	= Footer Bottom
 regions[footer]         = Footer
 regions[copyright]      = Copyright
 

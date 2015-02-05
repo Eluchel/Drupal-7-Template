@@ -12,10 +12,18 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
-<body><!--[if lt IE 7]>
+
+<?php
+	$front = drupal_is_front_page(); //added by Ben Hall
+	 /*This was added by Ben Hall so that the front page of the website has the class "front" and the rest have the class "not-front"*/
+	$front ? ($classes = 'front') : ($classes = 'not-front');
+?>
+<body class="<?php print $classes; ?>"><!--[if lt IE 7]>
     <p class="chromeframe">You are using an<strong>outdated</strong>browser. Please<a href="http://browsehappy.com/">upgrade your browser</a>or<a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a>to improve your experience.</p><![endif]-->
   <?php print $page_top; ?>
-  <?php print $page; ?>
+  <div id="page">
+    <?php print $page; ?>
+  </div>
   <?php print $page_bottom; ?>
 </body>
 </html>
